@@ -12,6 +12,7 @@ import json
 
 import os
 
+from datetime import date
 
 
 
@@ -325,6 +326,9 @@ def convert_to_rag_documents(df: pd.DataFrame) -> list:
             f"업무 내용: {row.get('description', '정보 없음')}"
         )
 
+        deadline = str(row.get("deadline", ""))
+        company = str(row.get("company", ""))
+
         # metadata: 검색 결과를 필터링하거나 출처를 표시할 때 사용합니다
         metadata = {
             "id": str(row.get("id", "")),
@@ -332,7 +336,13 @@ def convert_to_rag_documents(df: pd.DataFrame) -> list:
             "title": str(row.get("title", "")),
             "job_type": str(row.get("job_type", "")),
             "deadline": str(row.get("deadline", "")),
-            "source": "jobs.csv"
+            "source": "jobs.csv",
+            "deadline_month": deadline[5:7] if len(deadline) >= 7 and deadline[4] == "-" else "",
+            "is_startup": "true" if "스타트업" in company else "false",
+            "first_saved_date": date.today().isoformat()
+
+
+
         }
 
         documents.append({
