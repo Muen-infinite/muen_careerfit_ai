@@ -20,3 +20,17 @@ docs for more detail on building and pushing.
 
 ### References
 * [Docker's Python guide](https://docs.docker.com/language/python/)
+
+
+## 아키텍처 (README 에 적용하기)
+
+```mermaid
+flowchart LR
+ A[React UI\nlocalhost:5173] -->|POST /analyze| B[FastAPI\nlocalhost:8000]
+ B -->|검색| C[(ChromaDB)]
+ B -->|조회| D[(SQLite)]
+ C -->|관련 문서 3개| B
+ B -->|프롬프트 + 컨텍스트| E[Gemini API]
+ E -->|answer + sources| B
+ B -->|JSON 응답| A
+```

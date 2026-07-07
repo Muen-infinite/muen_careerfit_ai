@@ -6,21 +6,27 @@
 
 ## 프로젝트 개요
 
-CareerFit AI는 AI와 RAG(Retrieval-Augmented Generation) 기반 기술을 활용하여 사용자의 역량을 분석하고 적합한 채용 공고 및 공모전을 추천하는 커리어 지원 플랫폼입니다.
+취업을 준비하는 학생들은 관심 직무에 필요한 역량과 자신의 현재 역량을 객관적으로 파악하기 어렵습니다. 또한 채용 공고와 공모전 정보를 일일이 찾아 비교해야 해 취업 준비 방향을 설정하는 데 많은 시간과 노력이 필요합니다.
 
-FastAPI와 Gemini API를 활용한 AI 분석 기능, Pandas 기반 데이터 전처리, ChromaDB 기반 벡터 검색(RAG), React UI를 통해 사용자 친화적인 커리어 분석 서비스를 제공합니다.
+CareerFit AI는 RAG(Retrieval-Augmented Generation) 구조를 활용하여 채용 공고 데이터를 검색한 뒤, Gemini AI가 사용자의 전공, 보유 스킬, 관심 직무를 분석해 맞춤형 역량 분석과 추천 프로젝트, 공모전 준비 전략을 제공합니다.
 
 ---
 
-## 기술 스택
+## 🛠 기술 스택
 
 | 영역 | 기술 |
-|------|------|
-| Backend | Python, FastAPI |
-| AI | Gemini 2.5 Flash-Lite |
-| Data | Pandas, SQLite, ChromaDB |
-| Frontend | React, Vite |
-| Deployment | Docker (예정) |
+
+|---|---|
+
+| 백엔드 | Python 3.11, FastAPI |
+
+| AI API | Gemini 2.5 Flash-Lite |
+
+| 데이터 | Pandas, SQLite, ChromaDB |
+
+| 프론트엔드 | React, Vite |
+
+| 실행 환경 | Docker |
 
 ---
 
@@ -55,18 +61,44 @@ http://localhost:5173
 
 ---
 
-## 주요 기능
+## ✨ 주요 기능
 
-- 사용자 역량 입력(Form)
-- AI 기반 역량 분석
-- RAG 기반 채용공고 검색
-- 추천 프로젝트 제안
-- 분석 근거(Source Card) 제공
-- 분석 결과 UI(Result Card)
+- RAG 기반 역량 분석: 취업 공고 데이터를 근거로 맞춤형 조언 제공
+
+- 출처 표시: 어떤 공고 데이터를 참고했는지 sources로 함께 반환
+
+- Mock Mode: API 한도 초과 시 MOCK_MODE=true 로 폴백 가능
 
 ---
+## 📁 프로젝트 구조
 
-## 진행 현황
+```
+
+careerfit-ai/
+
+├── backend/ # FastAPI 서버
+
+│ ├── main.py
+
+│ ├── routers/
+
+│ ├── services/
+
+│ ├── data/
+
+│ └── Dockerfile
+
+├── frontend/ # React UI
+
+└── docs/ # 하네스 파일 모음
+
+```
+## 📝 개발 과정
+
+[본인이 가장 어려웠던 부분과 해결 과정 1~2문장]
+
+```5일차 초반부분에 여러 디버깅 문제때문에 계속 수업에 따라가지 못하는 상태에서 도커 설정이 들어가서 이후에 혼자서 했을때 좀 애를 먹었다. 
+Wsl2 이 제대로 설치되지 않아서 윈도우 파워쉘에서 윈도우 버전을 확인하고 그 이후에 설치해주니 이번엔 잘 설치 되었다. 
 
 ### 완료된 기능
 
@@ -94,4 +126,17 @@ http://localhost:5173
 - [x] 2일차 : FastAPI 서버 구축 및 Gemini API 연동
 - [x] 3일차 : 데이터 전처리 및 RAG 파이프라인 구축
 - [x] 4일차 : RAG 기반 서비스 및 React UI 구현
-- [ ] 5일차 : Docker 적용 및 포트폴리오 완성
+- [x] 5일차 : Docker 적용 및 포트폴리오 완성
+
+
+## Demo
+
+- Live Demo:https://muen-careerfit-ai.onrender.com/docs
+
+## Developer
+
+- Name: 권지윤
+
+- Role: 컴퓨터공학과 학생
+
+- Email: ebzmahs0306@gmail.com
